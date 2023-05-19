@@ -1,0 +1,22 @@
+
+ .header_link {
+color: #fff;
+    font-size: 20px;
+
+    &.active {
+        color: orange;
+    }
+
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
+ }
+  .headerNav {
+width: 100%;
+    margin: 0 auto;
+
+    padding: 20px 50px;
+    background-color: #089272;
+  }
+
+  

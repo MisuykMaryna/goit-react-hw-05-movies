@@ -1,0 +1,15 @@
+  .home {
+  width: 1280px;
+  margin: 0 auto;
+
+  padding-bottom: 60px;
+
+  & h2 {
+      display: block;
+      width: max-content;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      margin-top: 20px;
+  }
+
+}
