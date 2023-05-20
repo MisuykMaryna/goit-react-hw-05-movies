@@ -27,13 +27,13 @@ const MovieDetails = () => {
 
   return (
     <container>
-       {movie && (
+       {movie ? (
       <>
-        <div className={css.movieDetails_section}>
+      <div className={css.movieDetails_section}>
        <Link to={backLinkLocationRef.current} className={css.movieDetails_link} >
         Go back
-          </Link>
-          </div>
+            </Link>    
+      </div>
        <MovieInfo {...movie} />
       <div className={css.movieDetails}>
         <h3>Additional information</h3>
@@ -53,10 +53,10 @@ const MovieDetails = () => {
             <Outlet />
           </Suspense>
       </div>
-       
         </>
-         )}
-    </container>
+        ) : (<p>Sorry, there is no such movie!</p>)}
+        </container>
+      
     )
 }
 
