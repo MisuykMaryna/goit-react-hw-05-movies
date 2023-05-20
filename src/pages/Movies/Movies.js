@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import api from 'services/Api';
 import Notiflix from 'notiflix';
 import HomeList from 'components/HomeList/Homelist';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import css from './Movies.module.css';
 
 
 const Movies = () => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [movies, setMovies] = useState([]);
-    const [searchParams, setSearchParams] = useSearchParams();
+  const [movies, setMovies] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+
     
     const query = (searchParams.get('query') ?? '').trim();
     useEffect(() => {
@@ -65,7 +67,7 @@ const Movies = () => {
           onChange={onChange}
         ></input>
       </form>
-            {movies && <HomeList movies={movies} link={' '} />}
+            {movies && <HomeList movies={movies} link={' '} location={location}/>}
             </>
     )
    

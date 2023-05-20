@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef, Suspense } from 'react';
-import { useParams, NavLink, useLocation, Outlet } from 'react-router-dom';
+import { useParams, Link, useLocation, Outlet } from 'react-router-dom';
 import api from 'services/Api';
 import MovieInfo from 'components/MovieInfo/MovieInfo.jsx';
 import css from './MovieDetails.module.css';
@@ -25,33 +25,38 @@ const MovieDetails = () => {
   }, [movieId]);
 
 
-    return (
+  return (
+    <container>
+       {movie && (
       <>
         <div className={css.movieDetails_section}>
-       <NavLink to={backLinkLocationRef.current} className={css.movieDetails_link} >
+       <Link to={backLinkLocationRef.current} className={css.movieDetails_link} >
         Go back
-          </NavLink>
+          </Link>
           </div>
-      {movie && <MovieInfo {...movie} />}
+       <MovieInfo {...movie} />
       <div className={css.movieDetails}>
         <h3>Additional information</h3>
         <ul className={css.movieDetails_list}>
           <li>
-            <NavLink to="cast" className={css.movieDetails_link} >
+            <Link to="cast" className={css.movieDetails_link} >
               Cast
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="reviews" className={css.movieDetails_link} >
+            <Link to="reviews" className={css.movieDetails_link} >
               Reviews
-            </NavLink>
+            </Link>
           </li>
           </ul>
           <Suspense fallback={<div>Loading...</div>}>
             <Outlet />
           </Suspense>
       </div>
-          </>
+       
+        </>
+         )}
+    </container>
     )
 }
 
