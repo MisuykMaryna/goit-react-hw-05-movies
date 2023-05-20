@@ -53,7 +53,7 @@ const MovieDetails = () => {
             <Outlet />
           </Suspense>
       </div>
-        </>
+       </>
         ) : (<p>Sorry, there is no such movie!</p>)}
         </container>
       
